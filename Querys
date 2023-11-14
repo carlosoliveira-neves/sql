@@ -1,0 +1,11 @@
+curva ABC
+select product_id cod_produto, full_product_name produto, sold_at data_venda, amount quantidade, total_value valor_total 
+from sale_products sp
+where deleted_at isnull;
+
+Vendas de Produto
+
+select sp.product_id cod_produto, p.category_id cod_categoria, pc.name categoria,sp.sold_at data_compra, sp.amount quantidade, sp.total_value valor_total, sp.id id_vendas from sale_products sp
+inner join products p on sp.product_id=p.id
+inner join product_categories pc on p.category_id=pc.id
+where sp.deleted_at isnull;
